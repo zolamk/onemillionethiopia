@@ -1,0 +1,11 @@
+subscription people_by_country {
+  people_by_country(order_by: {count: desc}, limit: 10) {
+      country_id
+      count
+      country {
+        name
+        native
+        icon
+      }
+  }
+}

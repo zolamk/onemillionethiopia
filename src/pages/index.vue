@@ -12,11 +12,11 @@ const people = useResult(result, [], data => data.people_by_country)
 </script>
 
 <template>
-<div class="flex p-8">
-  <div class="flex-1">
+<div class="flex h-full">
+  <div class="flex-1 shadow rounded-lg m-4 p-4">
     <world-map/>
   </div>
-  <div class="max-w-sm flex-1 px-3">
+  <div class="max-w-sm flex-1 m-4 p-4 shadow rounded-lg">
     <h1 class="font-bold text-2xl text-center mb-2 text-pale-sky-500">Top Countries</h1>
     <ul role="list" class="-my-5 divide-y divide-pale-sky">
       <li v-for="p in people" :key="p.country_id" class="py-4">

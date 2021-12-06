@@ -89,10 +89,10 @@ const format_count = (number) => {
         <h3 class="text-xl text-pale-sky-100 font-semibold">{{ current_country.stat.count }}</h3>
       </div>
     </div>
-    <div class="max-w-sm flex-1 m-4 p-4 shadow rounded-lg">
+    <div class="max-w-sm flex-1 m-4 p-4 rounded-lg">
       <h1 class="font-bold text-2xl text-center mb-2 text-pale-sky-500">Top Countries</h1>
-      <ul class="divide-y divide-pale-sky">
-        <li v-for="p in people" :key="p.country_id" class="py-4">
+      <ul>
+        <li v-for="p in people" :key="p.country_id" class="py-4 shadow rounded px-2 mb-2">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0 text-3xl">{{ p.country.icon }}</div>
             <div class="flex-1 min-w-0">

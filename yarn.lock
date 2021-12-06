@@ -550,6 +550,11 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.19.tgz#feeb5aae89020bb389e1f63669a5ed490e391caa"
   integrity sha512-ZVxXaNy28/k3kJg0Fou5MiYpp88j7H9hLZp8PDC3jV0WFjfH5E9xHb56L0W59cPbKbcHXeP4qyT8PrHp8t6LcQ==
 
+d3-format@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-3.1.0.tgz#9260e23a28ea5cb109e93b21a06e24e2ebd55641"
+  integrity sha512-YyUI6AEuY/Wpt8KWLgZHsIU86atmikuoOmCfommt0LYHiQSPjvX2AcFc38PX0CBpr2RCyZhjex+NS/LPOv6YqA==
+
 debug@^4.3.2:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
@@ -922,6 +927,11 @@ graphql@^16.0.1:
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.0.1.tgz#93a13cd4e0e38ca8d0832e79614c8578bfd34f10"
   integrity sha512-oPvCuu6dlLdiz8gZupJ47o1clgb72r1u8NDBcQYjcV6G/iEdmE11B1bBlkhXRvV0LisP/SXRFP7tT6AgaTjpzg==
 
+gsap@^3.6.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.8.0.tgz#a404dd6ebbaabc92605539aea9d98e3098688064"
+  integrity sha512-cvpzKkWFePDZCycwXwJnDSpTR3j+a4QLQF/t0c+pXqzRESgAYx5hieaoshzZFjbwsARqr0+5c3GKE7wI273w/g==
+
 has-bigints@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/has-bigints/-/has-bigints-1.0.1.tgz#64fe6acb020673e3b78db035a5af69aa9d07b113"
@@ -1247,6 +1257,21 @@ lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
+lodash.mapkeys@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.mapkeys/-/lodash.mapkeys-4.6.0.tgz#df2cfa231d7c57c7a8ad003abdad5d73d3ea5195"
+  integrity sha1-3yz6Ix18V8eorQA6va1dc9PqUZU=
+
+lodash.pad@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/lodash.pad/-/lodash.pad-4.5.1.tgz#4330949a833a7c8da22cc20f6a26c4d59debba70"
+  integrity sha1-QzCUmoM6fI2iLMIPaibE1Z3runA=
+
+lodash.padstart@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.padstart/-/lodash.padstart-4.6.1.tgz#d2e3eebff0d9d39ad50f5cbd1b52a7bce6bb611b"
+  integrity sha1-0uPuv/DZ05rVD1y9G1KnvOa7YRs=
 
 lodash.topath@^4.5.2:
   version "4.5.2"
@@ -1844,6 +1869,13 @@ vue-demi@*, vue-demi@^0.12.1:
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.1.tgz#f7e18efbecffd11ab069d1472d7a06e319b4174c"
   integrity sha512-QL3ny+wX8c6Xm1/EZylbgzdoDolye+VpCXRhI2hug9dJTP3OUJ3lmiKN3CsVV3mOJKwFi0nsstbgob0vG7aoIw==
+
+vue-number-animation@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue-number-animation/-/vue-number-animation-1.1.1.tgz#785d35b8cbd349919265fb98ced566c388d5753b"
+  integrity sha512-xSYZZ50dbfQa0MPtDMECCkPSe6jDU56gPIBRXzfu9G/lFaCMzWyMokRQiHHK3/H/2WXdWGwnuZjpdphurtAHAg==
+  dependencies:
+    gsap "^3.6.0"
 
 vue-router@^4.0.12:
   version "4.0.12"

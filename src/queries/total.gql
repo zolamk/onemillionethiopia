@@ -1,0 +1,7 @@
+subscription total {
+  people_aggregate {
+      aggregate {
+          count
+      }
+  }
+}

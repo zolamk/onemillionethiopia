@@ -12,7 +12,7 @@ const { result, loading } = useSubscription(people_by_country, null, {
   fetchPolicy: "network-only"
 });
 
-let { onResult: onTotal } = useSubscription(total, null, {
+let { onResult: onTotal, loading: loading_total } = useSubscription(total, null, {
   fetchPolicy: "network-only"
 })
 
@@ -61,6 +61,7 @@ const format_count = (number) => {
 
 <template>
   <div class="flex flex-wrap h-full">
+    <v-progress v-if="loading || loading_total" class="fixed top-0 left-0" />
     <div class="flex-1 relative p-4 w-full min-w-420">
       <div class="text-center mb-4">
         <vue-number-animation

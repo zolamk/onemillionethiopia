@@ -60,8 +60,8 @@ const format_count = (number) => {
 </script>
 
 <template>
+  <v-progress v-if="loading || loading_total" class="fixed top-0 left-0" />
   <div class="flex flex-wrap h-full">
-    <v-progress v-if="loading || loading_total" class="fixed top-0 left-0" />
     <div class="flex-1 relative p-4 w-full min-w-420">
       <div class="text-center mb-4">
         <vue-number-animation

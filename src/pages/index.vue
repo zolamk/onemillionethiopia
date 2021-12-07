@@ -26,9 +26,15 @@ const f = format("~s")
 
 const legend = ref(false)
 
-const last_total = ref(0);
+const last_total = ref(0)
 
-const new_total = ref(0);
+const new_total = ref(0)
+
+const last_to_go = ref(1000000)
+
+const new_to_go = computed(() => {
+  return 1000000 - new_total.value
+})
 
 const current_country = ref(undefined);
 
@@ -63,30 +69,42 @@ const format_count = (number) => {
   <div v-if="loading || loading_total" class="w-full fixed top-0 left-0">
     <v-progress />
   </div>
-  <div class="p-2 flex justify-between items-center">
+  <div class="px-4 py-2 flex justify-between items-center">
     <img src="../assets/logo.jpg" width="100" />
     <v-button
       class="bg-ethiopia-green-400 hover:bg-ethiopia-green-500 transition-all text-white rounded-lg text-xl font-bold h-10 px-8"
-    >I'm Coming Home</v-button>
+    >Register</v-button>
   </div>
   <div class="flex content-start flex-wrap h-full">
-    <div class="flex-1 relative p-4 mb-4 w-full min-w-420">
-      <div class="text-center mb-4">
+    <div class="flex-1 relative px-4 w-full min-w-420">
+      <div class="text-center">
         <vue-number-animation
-          class="text-pale-sky font-mono font-extrabold text-4xl lg:text-6xl"
+          class="text-pale-sky font-mono block font-extrabold text-4xl lg:text-6xl"
           ref="number"
           :from="last_total"
           :duration="2"
           :to="new_total"
           :format="format_count"
         />
+        <h2 class="text-pale-sky-400 text-2xl font-semibold">So Far</h2>
       </div>
       <world-map
         :people_by_country="people_count_map"
         @hovercountry="hover_country"
         @hoverleavecountry="leave_country"
-        class="h-full w-full"
+        class="w-full p-4"
       />
+      <div class="text-center">
+        <vue-number-animation
+          class="text-pale-sky font-mono block font-extrabold text-4xl lg:text-6xl"
+          ref="number"
+          :from="last_to_go"
+          :duration="2"
+          :to="new_to_go"
+          :format="format_count"
+        />
+        <h2 class="text-pale-sky-400 text-2xl font-semibold">To Go</h2>
+      </div>
       <div
         class="bg-white absolute shadow-2xl px-8 py-4 text-center rounded-lg"
         v-if="legend && current_country.has_data"
@@ -98,7 +116,7 @@ const format_count = (number) => {
         <h3 class="text-xl text-pale-sky-100 font-semibold">{{ current_country.stat.count }}</h3>
       </div>
     </div>
-    <div class="lg:max-w-sm flex-1 p-4 rounded-lg min-w-420 w-full">
+    <div class="lg:max-w-sm flex-1 mt-8 px-4 rounded-lg min-w-420 w-full">
       <h1 class="font-bold text-3xl text-center mb-4 text-pale-sky">Top Countries</h1>
       <ul>
         <li v-for="p in people" :key="p.country_id" class="py-4 shadow rounded px-2 mb-2">

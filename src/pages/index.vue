@@ -63,11 +63,17 @@ const format_count = (number) => {
   <div v-if="loading || loading_total" class="w-full fixed top-0 left-0">
     <v-progress />
   </div>
+  <div class="p-2 flex justify-between items-center">
+    <img src="../assets/logo.jpg" width="100" />
+    <v-button
+      class="bg-ethiopia-green-400 hover:bg-ethiopia-green-500 transition-all text-white rounded-lg text-xl font-bold h-10 px-8"
+    >I'm Coming Home</v-button>
+  </div>
   <div class="flex content-start flex-wrap h-full">
     <div class="flex-1 relative p-4 mb-4 w-full min-w-420">
       <div class="text-center mb-4">
         <vue-number-animation
-          class="text-pale-sky font-mono font-extrabold text-4xl"
+          class="text-pale-sky font-mono font-extrabold text-4xl lg:text-6xl"
           ref="number"
           :from="last_total"
           :duration="2"

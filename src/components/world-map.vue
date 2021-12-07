@@ -1,5 +1,5 @@
 <template>
-	<svg id="map" ref="svg" viewBox="0 0 1008 650">
+	<svg id="map" viewBox="0 0 1008 650">
 		<g>
 			<path
 				id="AE"
@@ -1069,10 +1069,8 @@
 
 <script setup>
 
-import { onMounted, toRefs, ref, computed } from 'vue'
+import { onMounted, toRefs, ref, watch } from 'vue'
 import chroma from 'chroma-js'
-
-const svg = ref(null)
 
 const emit = defineEmits(["hovercountry", "hoverleavecountry"])
 
@@ -1088,7 +1086,7 @@ const props = defineProps({
 
 const { people_by_country } = toRefs(props);
 
-const style = computed(() => {
+watch(people_by_country, () => {
 
 	const style = document.createElement("style");
 
@@ -1108,7 +1106,7 @@ const style = computed(() => {
 
 	document.head.appendChild(style);
 
-	return s;
+
 })
 
 onMounted(() => {

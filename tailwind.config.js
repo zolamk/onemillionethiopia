@@ -6,6 +6,9 @@ module.exports = {
   jit: true,
   theme: {
     extend: {},
+    minWidth: {
+      '420': '420px'
+    },
     fill: theme => ({
       'pale-sky': theme('colors.pale-sky.100'),
       'ethiopia-green': theme('colors.ethiopia-green.50')

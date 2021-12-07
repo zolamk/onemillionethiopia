@@ -64,7 +64,7 @@ const format_count = (number) => {
     <v-progress />
   </div>
   <div class="flex content-start flex-wrap h-full">
-    <div class="flex-1 relative p-4 w-full min-w-420">
+    <div class="flex-1 relative p-4 mb-4 w-full min-w-420">
       <div class="text-center mb-4">
         <vue-number-animation
           class="text-pale-sky font-mono font-extrabold text-4xl"
@@ -92,8 +92,8 @@ const format_count = (number) => {
         <h3 class="text-xl text-pale-sky-100 font-semibold">{{ current_country.stat.count }}</h3>
       </div>
     </div>
-    <div class="lg:max-w-sm flex-1 pt-8 p-4 rounded-lg min-w-420 w-full">
-      <h1 class="font-bold text-2xl text-center mb-2 text-pale-sky-500">Top Countries</h1>
+    <div class="lg:max-w-sm flex-1 p-4 rounded-lg min-w-420 w-full">
+      <h1 class="font-bold text-3xl text-center mb-4 text-pale-sky">Top Countries</h1>
       <ul>
         <li v-for="p in people" :key="p.country_id" class="py-4 shadow rounded px-2 mb-2">
           <div class="flex items-center space-x-4">

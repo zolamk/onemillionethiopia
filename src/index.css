@@ -5,3 +5,16 @@
 * {
     box-sizing: border-box;
 }
+
+.modal, .overlay {
+    @apply fixed top-0 left-0 w-full h-full;
+  }
+    
+  .overlay {
+    @apply bg-pale-sky-800 opacity-70 z-40 cursor-pointer;
+  }
+    
+  .modal {
+    @apply z-50 flex justify-center items-center;
+  }
+  

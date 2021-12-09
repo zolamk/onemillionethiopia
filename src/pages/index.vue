@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, inject } from 'vue'
 import { useSubscription, useResult } from '@vue/apollo-composable'
 import people_by_country from '@/queries/people_by_country.gql'
 import total from '@/queries/total.gql'
@@ -7,6 +7,9 @@ import { format } from 'd3-format'
 import _map_keys from 'lodash.mapkeys'
 import _pad from 'lodash.padstart'
 import VueNumberAnimation from 'vue-number-animation/Number.vue'
+import Register from './register.vue'
+
+const global = inject('$global');
 
 const { result, loading } = useSubscription(people_by_country, null, {
   fetchPolicy: "network-only"
@@ -63,6 +66,10 @@ onTotal(({ data }) => {
 const format_count = (number) => {
   return _pad(number.toFixed(0), 7, '0')
 }
+
+const show_register = () => {
+  global.$modal.show(Register)
+}
 </script>
 
 <template>
@@ -72,6 +79,8 @@ const format_count = (number) => {
   <div class="px-4 py-2 flex justify-between items-center">
     <img src="../assets/logo.jpg" width="100" />
     <v-button
+      @click="show_register"
+      type="button"
       class="bg-ethiopia-green-400 hover:bg-ethiopia-green-500 transition-all text-white rounded-lg text-xl font-bold h-10 px-8"
     >Register</v-button>
   </div>

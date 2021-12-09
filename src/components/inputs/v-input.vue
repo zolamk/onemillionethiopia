@@ -1,52 +1,33 @@
 <template>
-    <div class="inline-block w-full" style="min-width: 240px;">
-      <label
-        v-if="!props.hideDetails"
-        class="block mb-2 text-sm relative text-sky-50 font-normal"
-        >{{ label }}</label
-      >
-      <v-progress
-        v-if="props.loading"
-        class="absolute w-full top-1 z-50 rounded-tr-md rounded-tl-md"
+  <div class="inline-block w-full" style="min-width: 240px;">
+    <label
+      v-if="!props.hideDetails"
+      class="block mb-2 text-sm relative text-pale-sky-800 font-normal"
+    >{{ label }}</label>
+    <v-progress
+      v-if="props.loading"
+      class="absolute w-full top-1 z-50 rounded-tr-md rounded-tl-md"
+    />
+    <div
+      class="relative focus-within:border-ethiopia-green-200 border border-pale-sky-400 box-border transition-all shadow-sm w-full bg-transparent rounded-md"
+    >
+      <input
+        :type="type"
+        ref="input"
+        v-model="v"
+        @input="(e) => emit('update:modelValue', e.target.value)"
+        @focus="$emit('focus')"
+        @blur="$emit('blur')"
+        @click="$emit('click')"
+        class="w-full bg-transparent p-2 placeholder-pale-sky text-pale-sky flex-grow rounded-md outline-none"
+        :placeholder="props.placeholder"
       />
-      <div
-        class="
-          relative
-          focus-within:border-white
-          border border-sky-50
-          box-border
-          transition-all
-          shadow-sm
-          w-full
-          bg-transparent
-          rounded-md
-        "
-      >
-          <input
-            :type="type"
-            ref="input"
-            v-model="v"
-            @input="(e) => emit('update:modelValue', e.target.value)"
-            @focus="$emit('focus')"
-            @blur="$emit('blur')"
-            @click="$emit('click')"
-            class="
-              w-full
-              bg-transparent
-              p-2
-              placeholder-white
-              text-white
-              flex-grow
-              rounded-md
-              outline-none
-            "
-            :placeholder="props.placeholder"
-          />
-        </div>
-      <p v-if="!props.hideDetails" class="text-red-300 text-sm pt-2 text-right">
-        {{ valid || errorMessages }}&nbsp;
-      </p>
     </div>
+    <p
+      v-if="!props.hideDetails"
+      class="text-red-300 text-sm pt-2 text-right"
+    >{{ valid || errorMessages }}&nbsp;</p>
+  </div>
 </template>
 
 <script setup>

@@ -1,88 +1,52 @@
 <template>
-    <div class="relative inline-block" ref="container">
-      <v-input
-        :loading="props.loading"
-        :label="props.label"
-        ref="input"
-        @input="(e) => emit('update:search', `${e.target.value}%`)"
-        @click="show = true"
-        :register="false"
-        :placeholder="placeholder"
-        :error-messages="valid || props.errorMessages"
-      >
-        <template v-if="multiple">
-          <template v-for="item in items" :key="item[value]">
-            <template v-if="selected[item[value]]">
-              <span
-                class="
-                  bg-green
-                  ml-1
-                  h-5
-                  text-sm
-                  my-1
-                  flex-shrink
-                  text-white
-                  px-2
-                  rounded
-                "
-                >{{ item[text] }}</span
-              >
-            </template>
+  <div class="relative inline-block" ref="container">
+    <v-input
+      :loading="props.loading"
+      :label="props.label"
+      ref="input"
+      @input="(e) => emit('update:search', `${e.target.value}%`)"
+      @click="show = true"
+      :register="false"
+      :placeholder="placeholder"
+      :error-messages="valid || props.errorMessages"
+    >
+      <template v-if="multiple">
+        <template v-for="item in items" :key="item[value]">
+          <template v-if="selected[item[value]]">
+            <span
+              class="bg-green ml-1 h-5 text-sm my-1 flex-shrink text-white px-2 rounded"
+            >{{ item[text] }}</span>
           </template>
         </template>
-      </v-input>
-      <ul
-        v-show="show"
-        class="
-          absolute
-          z-10
-          w-full
-          bg-white
-          border
-          shadow
-          -mt-6
-          max-h-56
-          rounded-md
-          text-base
-          overflow-auto
-        "
+      </template>
+    </v-input>
+    <ul
+      v-show="show"
+      class="absolute z-10 w-full bg-white border shadow -mt-6 max-h-56 rounded-md text-base overflow-auto"
+    >
+      <li
+        v-for="item in items"
+        :key="item.id"
+        @click="select(item)"
+        class="border-b select-none relative py-3 px-3 hover:bg-green text-pale-sky-600 cursor-pointer"
       >
-        <li
-          v-for="item in items"
-          :key="item.id"
-          @click="select(item)"
-          class="
-            border-b
-            select-none
-            relative
-            py-3
-            px-3
-            hover:bg-green
-            text-black
-            cursor-pointer
-          "
-        >
-          <div class="flex items-center justify-between">
-            <span class="text-black font-semibold block truncate">{{
+        <div class="flex items-center justify-between">
+          <span class="text-black font-semibold block truncate">
+            {{
               item.name
-            }}</span>
-            <CheckIcon
-              v-if="multiple && selected[item[value]]"
-              class="w-5 h-5 text-black"
-            />
-            <CheckIcon
-              v-else-if="selected === item[value]"
-              class="w-5 h-5 text-black"
-            />
-          </div>
-        </li>
-      </ul>
-    </div>
+            }}
+          </span>
+          <CheckIcon v-if="multiple && selected[item[value]]" class="w-5 h-5 text-black" />
+          <CheckIcon v-else-if="selected === item[value]" class="w-5 h-5 text-black" />
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup>
 import { CheckIcon, XIcon } from "@heroicons/vue/solid";
-import {  computed, ref, inject, toRefs } from "vue";
+import { computed, ref, inject, toRefs } from "vue";
 import { onClickOutside } from "@vueuse/core";
 
 const props = defineProps({

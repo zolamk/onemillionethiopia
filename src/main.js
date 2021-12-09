@@ -6,10 +6,15 @@ import rules from "./plugins/rules"
 import modal from "@/plugins/modal"
 import "./index.css"
 import router from '@/router'
+import toast from "@/plugins/toast"
 
-createApp(App).provide(DefaultApolloClient, apollo)
+const app = createApp(App);
+
+app.provide(DefaultApolloClient, apollo)
     .provide("$apollo", apollo)
+    .provide("$global", app.config.globalProperties)
     .use(modal)
+    .use(toast)
     .use(router)
     .mixin(rules)
     .mount('#app')

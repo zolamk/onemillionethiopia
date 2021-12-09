@@ -1,0 +1,5 @@
+mutation register($person: people_insert_input!) {
+    insert_people_one(object: $person) {
+        country_id
+    }
+}

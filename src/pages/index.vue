@@ -82,7 +82,7 @@ const show_register = () => {
       @click="show_register"
       type="button"
       class="bg-ethiopia-green-400 hover:bg-ethiopia-green-500 transition-all text-white rounded-lg text-xl font-bold h-10 px-8"
-    >Register</v-button>
+    >Accept Challenge</v-button>
   </div>
   <div class="flex content-start flex-wrap h-full">
     <div class="flex-1 relative px-4 w-full min-w-420">
